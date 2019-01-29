@@ -9935,8 +9935,7 @@ get_term_code(char_u *tname)
     if ((opt_idx = findoption(tname)) >= 0)
     {
 	varp = get_varp(&(options[opt_idx]));
-	if (varp != NULL)
-	    varp = *(char_u **)(varp);
+	varp = *(char_u **)(varp);
 	return varp;
     }
     return find_termcode(tname + 2);

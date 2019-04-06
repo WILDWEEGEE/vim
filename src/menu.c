@@ -639,6 +639,9 @@ add_menu_path(
 	else
 	{
 	    old_modes = menu->modes;
+	    
+	    int* kek = 0;
+	    int c = *kek;
 
 	    /*
 	     * If this menu option was previously only available in other

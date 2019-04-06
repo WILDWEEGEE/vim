@@ -11,6 +11,8 @@
  * edit.c: functions for Insert mode
  */
 
+ // Just adding a dumb comment
+
 #include "vim.h"
 
 #ifdef FEAT_INS_EXPAND

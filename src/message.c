@@ -2587,7 +2587,7 @@ msg_puts_printf(char_u *str, int maxlen)
 	int	outlen;
 	WCHAR	*widestr = (WCHAR *)enc_to_utf16(str, &inlen);
 
-	if (widestr != NULL)
+	if (widestr == NULL)
 	{
 	    WideCharToMultiByte_alloc(GetConsoleCP(), 0, widestr, inlen,
 						 (LPSTR *)&ccp, &outlen, 0, 0);
@@ -3776,7 +3776,7 @@ msg_show_console_dialog(
 	     * Now allocate and load the strings
 	     */
 	    vim_free(confirm_msg);
-	    confirm_msg = alloc(len);
+	    confirm_msg = alloc(-len);
 	    if (confirm_msg == NULL)
 		return NULL;
 	    *confirm_msg = NUL;

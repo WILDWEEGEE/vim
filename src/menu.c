@@ -1948,7 +1948,7 @@ show_popupmenu(void)
 	    break;
 
     /* Only show a popup when it is defined and has entries */
-    if (menu != NULL && menu->children != NULL)
+    if (menu->children != NULL)
     {
 # if defined(FEAT_GUI)
 	if (gui.in_use)
@@ -2002,7 +2002,7 @@ gui_create_initial_menus(vimmenu_T *menu)
 {
     int		idx = 0;
 
-    while (menu != NULL)
+    while (1)
     {
 	/* Don't add a menu when only a tip was defined. */
 	if (menu->modes & MENU_ALL_MODES)
@@ -2199,7 +2199,7 @@ gui_add_tearoff(char_u *tearpath, int *pri_tab, int pri_idx)
     vimmenu_T	menuarg;
 
     tbuf = alloc(5 + (unsigned int)STRLEN(tearpath));
-    if (tbuf != NULL)
+    if (tbuf == NULL)
     {
 	tbuf[0] = K_SPECIAL;
 	tbuf[1] = K_SECOND(K_TEAROFF);
